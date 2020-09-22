@@ -1,49 +1,51 @@
-const userModel = new UserModel({
-    fname: {},
-    lname: {},
-    email: {},
-    password: {},
-    userType: [
-        { student }, { lecturer }, { independentUser },
-    ],
+const { Int32 } = require('bson');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const userModel = new Schema({
+    fname: { type: String },
+    lname: { type: String },
+    email: { type: String },
+    password: { type: String },
+    userType: { type: String, enum: ['student', 'lecturer', 'independent Researcher'] },
     institution: [
         {
-            regNo: {},
-            institutionName: {},
-            faculty: {},
-            depertment: {},
-            level: {},
-            year: {},
+            regNo: { type: String },
+            institutionName: { type: String },
+            faculty: { type: String },
+            depertment: { type: String },
+            level: { type: String },
+            year: { type: Int32 },
         },
     ],
     project: [
         {
-            projectName: {},
-            projectStartDate: {},
-            projectStartDate: {},
+            projectName: { type: String },
+            projectStartDate: { type: Date },
+            projectEndDate: { type: Date },
             projectAuthor: [
                 {
-                    fname: {},
-                    lname: {},
-                    email: {},
+                    fname: { type: String },
+                    lname: { type: String },
+                    email: { type: String },
                 },
             ],
-            projectContent: {},
-            areaOfFocus: {},
+            projectContent: { type: String },
+            areaOfFocus: { type: String },
         },
     ],
     analysis: [
         {
             reasearchRead: {
-                timeStarted: {},
-                timeStoped: {},
+                timeStarted: { type: Date },
+                timeStoped: { type: Date },
             },
-            reasearchReading: {},
-            suggestion: {},
-            history: {}
+            reasearchReading: { type: String },
+            suggestion: { type: String },
+            history: { type: String }
         },
         {
-            othersReadResearch: {}
+            othersReadResearch: { type: String }
         },
     ],
 });
