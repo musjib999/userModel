@@ -1,4 +1,3 @@
-const { Int32 } = require('bson');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -15,7 +14,7 @@ const userModel = new Schema({
             faculty: { type: String },
             depertment: { type: String },
             level: { type: String },
-            year: { type: Int32 },
+            year: { type: Float32Array },
         },
     ],
     project: [
