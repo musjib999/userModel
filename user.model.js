@@ -2,6 +2,7 @@ const userModel = new UserModel({
     fname: {},
     lname: {},
     email: {},
+    password: {},
     userType: [
         { student }, { lecturer }, { independentUser },
     ],
